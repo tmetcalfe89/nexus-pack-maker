@@ -4,23 +4,32 @@ import getPageModId from "../util/getPageModId";
 export default component(
   ['[data-target="mod-management"]'],
   {
-    [`status.'${getPageModId()}'`]: "status",
+    [`mods.'${getPageModId()}'.rejected`]: "rejected",
   },
-  (parent, { status }, { createElement, setState }) => {
-    console.log("toggleRejectButton");
+  (parent, { rejected }, { createElement, listen, setState }) => {
     const listItem = document.createElement("li");
     const button = createElement("button", "a", {
-      innerText: status === "Rejected" ? "Unreject" : "Reject",
+      innerText: rejected ? "Unreject" : "Reject",
     });
     listItem.appendChild(button);
     parent.appendChild(listItem);
 
-    button.addEventListener("click", () => {
-      setState(["mods", getPageModId(), "rejected"], (p) => !p);
+    listen(button, "click", () => {
+      if (!rejected) {
+        setState(`mods.'${getPageModId()}'.added`, false);
+      }
+      setState(`mods.'${getPageModId()}'.rejected`, !rejected);
     });
   },
-  (parent, { status }, { getElement }) => {
+  (parent, { rejected }, { getElement, listen, setState }) => {
     const button = getElement("button");
-    button.innerText = status === "Rejected" ? "Unreject" : "Reject";
+    button.innerText = rejected ? "Unreject" : "Reject";
+
+    listen(button, "click", () => {
+      if (!rejected) {
+        setState(`mods.'${getPageModId()}'.added`, false);
+      }
+      setState(`mods.'${getPageModId()}'.rejected`, !rejected);
+    });
   }
 );
