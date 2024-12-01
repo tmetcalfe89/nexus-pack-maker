@@ -1,0 +1,9 @@
+.tiles .tile-desc p.tile-name[data-found="true"] {
+  display: flex;
+  justify-content: space-between;
+}
+
+i svg {
+  width: 1em;
+  fill: currentColor;
+}

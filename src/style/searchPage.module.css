@@ -1,0 +1,23 @@
+.inPack[data-status="Unreviewed"] {
+  color: grey;
+}
+
+.inPack[data-status="Rejected"] {
+  color: red;
+}
+
+.inPack[data-status="Desired"] {
+  color: white;
+}
+
+.inPack[data-status="Dependency"] {
+  color: purple;
+}
+
+.rejected[data-rejected="true"] {
+  color: white;
+}
+
+.rejected[data-rejected="false"] {
+  color: grey;
+}
