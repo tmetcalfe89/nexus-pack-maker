@@ -1,5 +1,5 @@
-import getPageModId from "../util/getPageModId";
-import toggleButton from "./modPage/toggleButton";
+import getPageModId from "../../util/getPageModId";
+import toggleButton from "./toggleButton";
 
 export default toggleButton(
   `mods.'${getPageModId()}'.added`,

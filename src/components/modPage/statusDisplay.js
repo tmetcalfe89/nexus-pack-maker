@@ -1,6 +1,6 @@
 import { component } from "@tmetcalfe89/vibrations";
-import modPageStyle from "../style/modPage.module.css";
-import getPageModId from "../util/getPageModId";
+import modPageStyle from "../../style/modPage.module.css";
+import getPageModId from "../../util/getPageModId";
 
 export default component(
   ["#feature", "#nofeature"],
