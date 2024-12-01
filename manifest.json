@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Nexus Pack Maker",
+  "version": "1.0",
+  "description": "Manages packs on Nexus.",
+  "content_scripts": [
+    {
+      "css": ["dist/nexuspackmaker.css"],
+      "js": ["dist/nexuspackmaker.js"],
+      "matches": ["https://www.nexusmods.com/skyrimspecialedition/*"]
+    }
+  ]
+}

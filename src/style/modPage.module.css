@@ -1,0 +1,28 @@
+.status {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 1001;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.status[data-status="Unreviewed"] {
+  background-color: grey;
+  color: black;
+}
+
+.status[data-status="Rejected"] {
+  background-color: red;
+  color: black;
+}
+
+.status[data-status="Desired"] {
+  background-color: white;
+  color: black;
+}
+
+.status[data-status="Dependency"] {
+  background-color: purple;
+  color: white;
+}
