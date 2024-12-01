@@ -5,8 +5,8 @@
   "description": "Manages packs on Nexus.",
   "content_scripts": [
     {
-      "css": ["dist/nexuspackmaker.css"],
-      "js": ["dist/nexuspackmaker.js"],
+      "css": ["nexuspackmaker.css"],
+      "js": ["nexuspackmaker.js"],
       "matches": ["https://www.nexusmods.com/skyrimspecialedition/*"]
     }
   ]
