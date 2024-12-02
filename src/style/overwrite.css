@@ -7,3 +7,7 @@ i svg {
   width: 1em;
   fill: currentColor;
 }
+
+.fadeoff {
+  display: none;
+}
