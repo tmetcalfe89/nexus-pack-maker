@@ -21,3 +21,7 @@
 .rejected[data-rejected="false"] {
   color: grey;
 }
+
+.modTileTitleActions {
+  flex-shrink: 0;
+}
