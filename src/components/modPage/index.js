@@ -1,5 +1,6 @@
 import extractModData from "./extractModData";
 import modManagementDropdown from "./modManagementDropdown";
+import removeNoDepsMessage from "./removeNoDepsMessage";
 import statusDisplay from "./statusDisplay";
 import toggleInPackButton from "./toggleInPackButton";
 import toggleRejectButton from "./toggleRejectButton";
@@ -10,4 +11,5 @@ export default [
   statusDisplay,
   toggleInPackButton,
   toggleRejectButton,
+  removeNoDepsMessage,
 ];
