@@ -8,8 +8,6 @@ export default component(
     status: "statuses",
     mods: "mods",
   },
-  // TODO: Should I be able to attach a dependency during initialization?
-  // As an example, this one doesn't know which mod it's for yet, but having it listen to *every* change on mods seems a bit gratuitous.
   (
     parent,
     { statuses, mods },
