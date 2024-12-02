@@ -11,3 +11,8 @@ i svg {
 .fadeoff {
   display: none;
 }
+
+.subnav ul.sublist {
+  display: flex;
+  flex-direction: column;
+}
