@@ -31,5 +31,8 @@ export default component(
       parent.prepend(requirementBlock);
     }
     requirementTable.dataset.target = "dependency-table";
+    const theadTh = document.createElement("th");
+    theadTh.innerText = "Toggle";
+    requirementTable.querySelector("thead tr").appendChild(theadTh);
   }
 );
