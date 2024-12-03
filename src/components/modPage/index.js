@@ -1,4 +1,5 @@
 import addDependency from "./addDependency";
+import addDependencySwitch from "./addDependencySwitch";
 import addManualDependencyRows from "./addManualDependencyRows";
 import extractModData from "./extractModData";
 import modManagementDropdown from "./modManagementDropdown";
@@ -10,6 +11,7 @@ import toggleRejectButton from "./toggleRejectButton";
 
 export default [
   ...extractModData,
+  addDependencySwitch,
   setupRequirementTable,
   addManualDependencyRows,
   modManagementDropdown,
