@@ -24,4 +24,5 @@
 
 .modTileTitleActions {
   flex-shrink: 0;
+  display: flex;
 }
