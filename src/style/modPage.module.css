@@ -26,3 +26,8 @@
   background-color: purple;
   color: white;
 }
+
+.status[data-status="Compat"] {
+  background-color: darkgoldenrod;
+  color: black;
+}

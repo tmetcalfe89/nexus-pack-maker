@@ -1,11 +1,15 @@
 import { get, update } from "@tmetcalfe89/keychain";
 
+function isIn(status) {
+  return status === "Dependency" || status === "Desired" || status === "Compat";
+}
+
 export default function calculateStatuses(mods) {
   const statuses = {};
 
   const dependenciesScanned = {};
   function scanDependencies(modId) {
-    if (dependenciesScanned[modId]) return;
+    if (dependenciesScanned[modId]) return false;
     dependenciesScanned[modId] = true;
     const mod = mods[modId];
     if (mod?.dependencies) {
@@ -17,6 +21,30 @@ export default function calculateStatuses(mods) {
         }
         scanDependencies(depId);
       });
+      return true;
+    }
+    return false;
+  }
+
+  function scanCompat() {
+    let found = false;
+    for (const modId in mods) {
+      const { compat } = mods[modId];
+      if (!compat?.length) continue;
+      if (
+        !isIn(statuses[modId]) &&
+        compat.some(
+          (list) =>
+            list.length > 1 &&
+            list.every((compatDepId) => isIn(statuses[compatDepId]))
+        )
+      ) {
+        found = true;
+        statuses[modId] = "Compat";
+      }
+    }
+    if (found) {
+      scanCompat();
     }
   }
 
@@ -31,6 +59,7 @@ export default function calculateStatuses(mods) {
       update([modId], "Unreviewed", statuses);
     }
   }
+  scanCompat();
 
   return statuses;
 }
