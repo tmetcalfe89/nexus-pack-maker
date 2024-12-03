@@ -8,6 +8,7 @@ import setupRequirementTable from "./setupRequirementTable";
 import statusDisplay from "./statusDisplay";
 import toggleInPackButton from "./toggleInPackButton";
 import toggleRejectButton from "./toggleRejectButton";
+import manageCompat from "./manageCompat";
 
 export default [
   ...extractModData,
@@ -20,4 +21,5 @@ export default [
   toggleRejectButton,
   removeNoDepsMessage,
   manageCustomDependencies,
+  manageCompat,
 ];
