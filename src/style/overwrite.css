@@ -8,6 +8,10 @@ i svg {
   fill: currentColor;
 }
 
+i:has(svg) {
+  display: flex;
+}
+
 .fadeoff {
   display: none;
 }

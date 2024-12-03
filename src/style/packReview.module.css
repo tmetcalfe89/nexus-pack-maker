@@ -1,0 +1,20 @@
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.needsAttentionHeader {
+  order: 1;
+}
+
+.needsAttentionEntry {
+  order: 2;
+}
+
+.listHeader {
+  order: 3;
+}
+
+.listEntry {
+  order: 4;
+}
