@@ -19,8 +19,7 @@ export default component(
         innerHTML: `<td>
           <a href="https://www.nexusmods.com/skyrimspecialedition/mods/${modId}">${modTitle}</a>
         </td>
-        <td>${modNotes}</td>
-        <td></td>`,
+        <td>${modNotes}</td>`,
       });
       row.dataset.manualDepRow = "true";
       parent.appendChild(row);
