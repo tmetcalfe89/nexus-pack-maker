@@ -4,7 +4,6 @@ import getPageModId from "../../util/getPageModId";
 export default component(
   ['[data-target="dependency-table"] tbody'],
   {
-    // [`mods.'${getPageModId()}'.dependencies`]: "deps",
     mods: "mods",
   },
   (parent, { mods }, { createElement }) => {
