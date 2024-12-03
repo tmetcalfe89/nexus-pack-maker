@@ -1,4 +1,4 @@
-import { component } from "@tmetcalfe89/vibrations";
+import modManagementDropdownEntry from "./modManagementDropdownEntry";
 
 export default function toggleButton(
   dependencyKey,
@@ -6,24 +6,21 @@ export default function toggleButton(
   turnOnText,
   turnOffText
 ) {
-  return component(
-    ['[data-target="mod-management"]'],
+  return modManagementDropdownEntry(
     {
       [dependencyKey]: dependencyKey,
     },
-    (parent, dependencies, { createElement, setState, listen }) => {
+    (parent, dependencies, { createButton, setState }) => {
       const dependency = dependencies[dependencyKey];
-      const listItem = document.createElement("li");
-      const button = createElement("button", "a", {
-        innerText: dependency ? turnOffText : turnOnText,
-      });
-      listItem.appendChild(button);
-      parent.appendChild(listItem);
-
-      listen(button, "click", () => {
-        onToggle(dependency, setState);
-        setState(dependencyKey, !dependency);
-      });
+      createButton(
+        {
+          innerText: dependency ? turnOffText : turnOnText,
+        },
+        () => {
+          onToggle(dependency, setState);
+          setState(dependencyKey, !dependency);
+        }
+      );
     },
     (parent, dependencies, { getElement, listen, setState }) => {
       const dependency = dependencies[dependencyKey];

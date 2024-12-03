@@ -1,0 +1,67 @@
+dialog.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.25);
+  border: none;
+  padding: 0;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  flex-direction: column;
+}
+
+dialog.modal[open] {
+  display: flex;
+}
+
+dialog.modal > :first-child {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+dialog.modal > :last-child {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+dialog.modal > :not(:last-child) {
+  border-bottom: 1px solid grey;
+}
+
+dialog.modal > * {
+  background-color: #444;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
+dialog.modal > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+dialog.modal > header > .headerSide {
+  display: flex;
+}
+
+dialog.modal > main {
+  flex-basis: 0;
+  min-height: 0;
+  flex-grow: 1;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+}
+
+dialog.modal .actions {
+  display: flex;
+}
