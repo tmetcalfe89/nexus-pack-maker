@@ -1,4 +1,4 @@
-import addDependency from "./addDependency";
+import manageCustomDependencies from "./manageCustomDependencies";
 import addDependencySwitch from "./addDependencySwitch";
 import addManualDependencyRows from "./addManualDependencyRows";
 import extractModData from "./extractModData";
@@ -19,5 +19,5 @@ export default [
   toggleInPackButton,
   toggleRejectButton,
   removeNoDepsMessage,
-  addDependency,
+  manageCustomDependencies,
 ];
