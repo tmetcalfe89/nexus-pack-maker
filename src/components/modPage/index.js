@@ -9,9 +9,11 @@ import statusDisplay from "./statusDisplay";
 import toggleInPackButton from "./toggleInPackButton";
 import toggleRejectButton from "./toggleRejectButton";
 import manageCompat from "./manageCompat";
+import ensureReqAccordion from "./ensureReqAccordion";
 
 export default [
   ...extractModData,
+  ensureReqAccordion,
   addDependencySwitch,
   setupRequirementTable,
   addManualDependencyRows,

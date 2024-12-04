@@ -5,6 +5,7 @@ export default component(
   ['[data-target="dependency-table"] tbody'],
   {},
   (parent, {}, { setState }) => {
+    setState(`mods.'${getPageModId()}'.dependencies`, (p) => (!p ? {} : p));
     const requirementRows = [...parent.querySelectorAll("tr")];
     requirementRows.forEach((reqRow) => {
       const reqId = reqRow
