@@ -54,6 +54,7 @@ dialog.modal > header {
 
 dialog.modal > header > .headerSide {
   display: flex;
+  gap: 5px;
 }
 
 dialog.modal > main {

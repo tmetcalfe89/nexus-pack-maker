@@ -16,8 +16,7 @@ export default function createModal(
       </div>
     </header>
     <main></main>
-    ${footerContent ? `<footer></footer>` : ""}
-    `,
+    ${footerContent ? `<footer></footer>` : ""}`,
   });
   modal.querySelector("button").addEventListener("click", () => {
     modal.open = false;
