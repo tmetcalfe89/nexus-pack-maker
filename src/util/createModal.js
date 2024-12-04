@@ -22,6 +22,11 @@ export default function createModal(
   modal.querySelector("button").addEventListener("click", () => {
     modal.open = false;
   });
+  window.addEventListener("keyup", (e) => {
+    if (e.key === "Escape") {
+      modal.open = false;
+    }
+  });
   modal.querySelector(`.${modalStyle.headerSide}`).prepend(headerContent || "");
   modal.querySelector("main").append(mainContent || "");
   modal.querySelector("footer")?.append(footerContent || "");
