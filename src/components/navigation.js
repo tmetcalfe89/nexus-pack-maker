@@ -4,7 +4,7 @@ import createModal from "../util/createModal";
 import packReviewStyles from "../style/packReview.module.css";
 import { isIn } from "../util/calculateStatuses";
 
-function createModCards(statuses, mods, createElement, packList) {
+function createModCards(statuses, mods, createElement, packList, search) {
   Object.entries(statuses)
     .filter(([_modId, status]) => {
       return isIn(status);
@@ -17,6 +17,8 @@ function createModCards(statuses, mods, createElement, packList) {
     .forEach(([modId, status]) => {
       const missingModData = !mods[modId]?.dependencies;
       const mod = mods[modId];
+      if (search && !mod.modTitle.toLowerCase().includes(search.toLowerCase()))
+        return;
       const dependentsNeedingReview = mod?.dependencies
         ? Object.entries(mod.dependencies).filter(
             ([_modId, { required } = {}]) => required === null
@@ -59,7 +61,8 @@ function createModCards(statuses, mods, createElement, packList) {
 export default component(
   [".nav-interact-buttons"],
   { status: "statuses", mods: "mods" },
-  (parent, { mods, statuses }, { createElement, listen }) => {
+  (parent, { mods, statuses }, { createElement, listen, setInternalState }) => {
+    setInternalState("search", "");
     const packReviewDiv = document.createElement("div");
     packReviewDiv.className = "nav-interact rj-upload";
     packReviewDiv.innerHTML = `
@@ -73,12 +76,17 @@ export default component(
       <h2 class="${packReviewStyles.listHeader}">List</h2>`,
     });
     createModCards(statuses, mods, createElement, packList);
+    const searchInput = createElement("searchInput", "input");
+    searchInput.addEventListener("input", (e) => {
+      setInternalState("search", e.target.value);
+    });
     const packReviewModal = createModal(
       createElement,
       "packReviewModal",
       "Pack Review",
       {
         mainContent: packList,
+        headerContent: searchInput,
       }
     );
 
@@ -93,9 +101,20 @@ export default component(
 
     parent.prepend(packReviewDiv);
   },
-  (parent, { mods, statuses }, { getElement, createElement }) => {
+  (
+    parent,
+    { mods, statuses },
+    { getElement, createElement, getInternalState }
+  ) => {
+    console.log(getInternalState("search"));
     const packList = getElement("packList");
     packList.querySelectorAll("section").forEach((e) => e.remove());
-    createModCards(statuses, mods, createElement, packList);
+    createModCards(
+      statuses,
+      mods,
+      createElement,
+      packList,
+      getInternalState("search")
+    );
   }
 );
