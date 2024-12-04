@@ -41,6 +41,7 @@ export default function calculateStatuses(mods) {
       ) {
         found = true;
         statuses[modId] = "Compat";
+        scanDependencies(modId);
       }
     }
     if (found) {
