@@ -14,7 +14,7 @@ export default function calculateStatuses(mods) {
     const mod = mods[modId];
     if (mod?.dependencies) {
       Object.entries(mod.dependencies).forEach(([depId, dependency]) => {
-        if (!dependency.required) return;
+        if (!dependency?.required) return;
         const currentStatus = get([depId], statuses);
         if (!currentStatus || currentStatus === "Unreviewed") {
           update([depId], "Dependency", statuses);
