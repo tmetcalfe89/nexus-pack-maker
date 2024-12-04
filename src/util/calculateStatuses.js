@@ -1,6 +1,6 @@
 import { get, update } from "@tmetcalfe89/keychain";
 
-function isIn(status) {
+export function isIn(status) {
   return status === "Dependency" || status === "Desired" || status === "Compat";
 }
 

@@ -2,6 +2,7 @@ import { component } from "@tmetcalfe89/vibrations";
 import { cubeIcon } from "./icons";
 import createModal from "../util/createModal";
 import packReviewStyles from "../style/packReview.module.css";
+import { isIn } from "../util/calculateStatuses";
 
 export default component(
   [".nav-interact-buttons"],
@@ -22,7 +23,7 @@ export default component(
     });
     Object.entries(statuses)
       .filter(([_modId, status]) => {
-        return status !== "Unreviewed";
+        return isIn(status);
       })
       .sort(([aModId], [bModId]) => {
         const aName = mods[aModId]?.modTitle || aModId;
@@ -95,7 +96,7 @@ export default component(
 
     Object.entries(statuses)
       .filter(([_modId, status]) => {
-        return status !== "Unreviewed";
+        return isIn(status);
       })
       .sort(([aModId], [bModId]) => {
         const aName = mods[aModId]?.modTitle || aModId;
